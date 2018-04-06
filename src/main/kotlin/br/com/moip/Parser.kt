@@ -36,8 +36,4 @@ interface Report {
 /**
  * Grouping of an item identification with count of occurrences
  */
-interface Count {
-    val id: String
-
-    val count: Int
-}
+data class Count(val id: String, val count: Int)
