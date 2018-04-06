@@ -20,7 +20,7 @@ abstract class ParserTest {
     }
 
     @Test
-    fun `given sample stream, when asked for first three, then should return three more frequent urls`() {
+    fun `given a sample stream, when asked for first three, then should return three more frequent urls`() {
         val report = getImplementation()?.parse(javaClass.getResourceAsStream("/sample.txt"))!!
 
         TODO("Discover real return of sample")
@@ -33,12 +33,12 @@ abstract class ParserTest {
     }
 
     @Test
-    fun `given sample stream, when asked for status count, then should return all status ordered`() {
+    fun `given a sample stream, when asked for status count, then should return all status ordered`() {
         val report = getImplementation()?.parse(javaClass.getResourceAsStream("/sample.txt"))!!
 
         TODO("Discover real return of sample")
 
-        assertThat(report.getFirst(3), contains(
+        assertThat(report.getStatusCounts(), contains(
             countOf("200", 100),
             countOf("100", 99)
         ))
