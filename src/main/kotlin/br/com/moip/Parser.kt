@@ -23,6 +23,14 @@ interface Report {
      * @return a list of all status codes delivered, ordered by frequency
      */
     fun getStatusCounts(): List<Count>
+
+    /**
+     * Add a pair of url and statusCode to the Report
+     *
+     * @param url Url to be added
+     * @param statusCode HTTP status code to be added
+     */
+    fun add(url: String, statusCode: String)
 }
 
 /**
