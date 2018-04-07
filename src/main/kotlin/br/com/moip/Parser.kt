@@ -36,4 +36,6 @@ interface Report {
 /**
  * Grouping of an item identification with count of occurrences
  */
-data class Count(val id: String, val count: Int)
+data class Count(val id: String, val count: Int) {
+    override fun toString() = "$id - $count"
+}
