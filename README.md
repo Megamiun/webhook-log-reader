@@ -2,6 +2,10 @@
 
 This project parses a log file and return some aggregated information about the frequency of urls and status codes inside the log content.
 
+## Building
+
+To build this project, you just need to run `./gradlew jar` and this will create the project jar in `./build/libs`.
+
 ## Usage
 
 ### Library
@@ -10,13 +14,17 @@ As a library, you can use this project by importing it in the system, instantiat
 
 ### CLI
 
-As a `CLI`, you can use this project by specifying in the command line the method of retrieval of the results and the path for the file. The arguments are as follow:
+As a `CLI`, you can use this project by specifying in the command line the method of retrieval of the results and the path for the file, I recommend packaging the program with the command `./gradlew shadow`, that will create a jar called `log-reader-1.0-SNAPSHOT-all.jar` in `build/libs` and them executing this jar. The arguments are as follow:
 
-```[-h] [-t] [FILEPATH] [--regex]```
+```java -jar log-reader-1.0-SNAPSHOT-all.jar [-h] [-t] [FILEPATH] [--regex]```
 
 - `-t` - Prints the execution time at the end of execution;
 - `FILEPATH` - Path to the file to be parsed;
 - `--regex` - Implementation to use, in this case, regex
+
+### Gradle
+
+To run this program directly from Gradle, you can use the command `./gradlew runProgram '-Parguments='` with the CLI arguments as a comma separated list of values after `-Parguments`.
 
 ### Sample File
 
