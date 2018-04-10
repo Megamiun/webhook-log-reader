@@ -45,6 +45,24 @@ abstract class ParserTest {
         ))
     }
 
+    @Test
+    fun `given a line with two items, when parsing, then should recognize both`() {
+        val report = getImplementation().parse(javaClass.getResourceAsStream("/double_line.txt"))
+
+        assertThat(report.getStatusCounts(), contains(
+            countOf("400", 1),
+            countOf("200", 1)
+        ))
+    }
+
+    @Test
+    fun `given a line with irregular line, when parsing, then should recognize correctly`() {
+        val report = getImplementation().parse(javaClass.getResourceAsStream("/irregular_line.txt"))
+
+        assertThat(report.getStatusCounts(), contains(countOf("201", 1)))
+        assertThat(report.getFirst(1), contains(countOf("https://grotesquemoon.de", 1)))
+    }
+
     private fun countOf(id: String, count: Int): Matcher<Count> =
         compose(
             hasFeature("id", Count::id, `is`(id)),

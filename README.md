@@ -4,7 +4,7 @@ This project parses a log file and return some aggregated information about the 
 
 ## Building
 
-To build this project, you just need to run `./gradlew jar` and this will create the project jar in `./build/libs`.
+I recommend packaging the program with the command `./gradlew shadow`, that will create a fat jar called `log-reader-1.0-SNAPSHOT-all.jar` in `build/libs`.
 
 ## Usage
 
@@ -14,13 +14,15 @@ As a library, you can use this project by importing it in the system, instantiat
 
 ### CLI
 
-As a `CLI`, you can use this project by specifying in the command line the method of retrieval of the results and the path for the file, I recommend packaging the program with the command `./gradlew shadow`, that will create a jar called `log-reader-1.0-SNAPSHOT-all.jar` in `build/libs` and them executing this jar. The arguments are as follow:
+As a `CLI`, you can use this project by specifying in the command line the method of retrieval of the results and the path for the file. The arguments are as follow:
 
-```java -jar log-reader-1.0-SNAPSHOT-all.jar [-h] [-t] [FILEPATH] [--regex]```
+```java -jar log-reader-1.0-SNAPSHOT-all.jar [-h] [-t] [-b] [FILEPATH] [--split|--regex]```
 
 - `-t` - Prints the execution time at the end of execution;
+- `-b` - Runs a benchmark between the implementations, running each a hundred times.
 - `FILEPATH` - Path to the file to be parsed;
-- `--regex` - Implementation to use, in this case, regex
+- `--regex` - Implementation to use, in this case, regex;
+- `--split` - Implementation to use, in this case, split, is the default one.
 
 ### Gradle
 

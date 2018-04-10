@@ -9,11 +9,12 @@ import java.io.InputStreamReader
 import java.util.regex.Pattern
 
 /**
+ * Parse through the log using regexps.
+ *
  * @author Gabryel Monteiro (Last Modified By: $Author: gabryel $)
  * @version $Id: v 1.1 Apr 06, 2018 gabryel Exp $
  */
 class RegexParser : Parser {
-    
     private val lineRegex = Pattern.compile("""request_to="(.*?)".*? response_status="(.*?)"""")
     
     override fun parse(stream: InputStream): Report {
