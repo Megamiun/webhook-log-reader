@@ -54,7 +54,7 @@ task(runProgram, type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
     main = "br.com.moip.cli.ParserCliKt"
 
-    if (project.hasProperty('arguments')) {
+    if (project.hasProperty('arguments') && !arguments.isEmpty()) {
         args(arguments.split(','))
     }
 }

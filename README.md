@@ -26,7 +26,23 @@ As a `CLI`, you can use this project by specifying in the command line the metho
 
 ### Gradle
 
-To run this program directly from Gradle, you can use the command `./gradlew runProgram '-Parguments='` with the CLI arguments as a comma separated list of values after `-Parguments`.
+To run this program directly from Gradle, you can use the command `./gradlew runProgram '-Parguments='` with the CLI arguments as a comma separated list of values after `-Parguments`. For example:
+
+```bash
+// Run default(Split) implementation:
+./gradlew run
+./gradlew runProgram
+./gradlew runProgram '-Parguments='
+
+// Run regex implementation, timed:
+./gradlew runProgram '-Parguments=--regex,-t'
+
+// Run benchmarks:
+./gradlew runProgram '-Parguments=-b'
+
+// Run for a given file:
+./gradlew runProgram '-Parguments=src/main/resources/log.txt'
+```
 
 ### Sample File
 
