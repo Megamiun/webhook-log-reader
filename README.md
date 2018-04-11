@@ -4,7 +4,7 @@ This project parses a log file and return some aggregated information about the 
 
 ## Building
 
-I recommend packaging the program with the command `./gradlew shadow`, that will create a fat jar called `log-reader-1.0-SNAPSHOT-all.jar` in `build/libs`.
+I recommend packaging the program with the command `./gradlew shadowJar`, that will create a fat jar called `log-reader-1.0-SNAPSHOT-all.jar` in `build/libs`.
 
 ## Usage
 
