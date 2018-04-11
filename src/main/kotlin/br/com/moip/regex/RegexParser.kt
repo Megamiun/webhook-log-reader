@@ -15,13 +15,15 @@ import java.util.regex.Pattern
  * @version $Id: v 1.1 Apr 06, 2018 gabryel Exp $
  */
 class RegexParser : Parser {
+
+    // This pattern finds the shortest possible version of the string in the line.
+    // It needs to be the shortest so when we have more than one occurrence by line,
+    // we don't get a version that takes the entire line.
     private val lineRegex = Pattern.compile("""request_to="(.*?)".*? response_status="(.*?)"""")
     
     override fun parse(stream: InputStream): Report {
         val report = MapReport()
-        val parser = { line: String -> parseLine(line, report) }
-
-        stream.getReader().useLines { it.forEach(parser) }
+        stream.getReader().forEachLine { line -> parseLine(line, report) }
         
         return report
     }

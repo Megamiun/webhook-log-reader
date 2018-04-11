@@ -49,7 +49,7 @@ abstract class ParserTest {
     fun `given a line with two items, when parsing, then should recognize both`() {
         val report = getImplementation().parse(javaClass.getResourceAsStream("/double_line.txt"))
 
-        assertThat(report.getStatusCounts(), contains(
+        assertThat(report.getStatusCounts(), containsInAnyOrder(
             countOf("400", 1),
             countOf("200", 1)
         ))

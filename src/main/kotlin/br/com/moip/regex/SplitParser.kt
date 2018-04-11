@@ -15,9 +15,7 @@ class SplitParser : Parser {
 
     override fun parse(stream: InputStream): Report {
         val report = MapReport()
-        val parser = { line: String -> parseLine(line, report) }
-
-        stream.reader().forEachLine(parser)
+        stream.reader().forEachLine { line -> parseLine(line, report) }
 
         return report
     }
@@ -38,7 +36,7 @@ class SplitParser : Parser {
         if (info.size < tokensBySet)
             return
 
-        for (base in info.size until 0 step tokensBySet) {
+        for (base in info.size - 1 downTo 6 step tokensBySet) {
             report.add(info[base - 3], info[base - 1])
         }
     }

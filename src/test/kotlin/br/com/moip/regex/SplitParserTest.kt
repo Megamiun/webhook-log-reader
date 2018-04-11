@@ -7,5 +7,5 @@ import br.com.moip.ParserTest
  * @version $Id: v 1.1 Apr 06, 2018 gabryel Exp $
  */
 class SplitParserTest : ParserTest() {
-    override fun getImplementation() = RegexParser()
+    override fun getImplementation() = SplitParser()
 }
